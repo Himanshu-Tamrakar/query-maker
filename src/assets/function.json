@@ -1,0 +1,39 @@
+{
+    "data": {
+      "allSysFunctionsMasters": {
+        "nodes": [
+          {
+            "displayOrder": "1",
+            "functionType": "FUNCTION",
+            "functionSubType": "SUM",
+            "functionGroup": "",
+            "portalConfiguration": {
+               "name": "SUM", 
+               "syntax": "SUM(Int P1, Int P2)",
+               "returnDataType": "number",
+               "parameters": {
+                  "count": "multi",
+                  "dataType": ["number"]
+               },
+               "description": ""
+            }
+          }, {
+            "displayOrder": "1",
+            "functionType": "FUNCTION",
+            "functionSubType": "SUB",
+            "functionGroup": "",
+            "portalConfiguration": {
+               "name": "SUB", 
+               "syntax": "SUB(Int P1, Int P2)",
+               "returnDataType": "number",
+               "parameters": {
+                  "count": "2",
+                  "dataType": ["number"]
+               },
+               "description": ""
+            }
+          }
+          ]
+      }
+    }
+  }

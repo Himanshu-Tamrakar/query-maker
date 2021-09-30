@@ -1,0 +1,35 @@
+<div class="boundry">
+    <section class="top-bar">
+        <span>Form Builder</span>
+        <span>
+            <button type="button" label="Add Expression" (click)="addRule()">add Rule</button>
+            <button type="button" label="Add Expression" (click)="addRuleset()">add RuleSet</button>
+            <button [disabled]="removebtn == 'true'" type="button" label="Add Expression" (click)="remove()">Remove</button>
+        </span>
+
+    </section>
+
+
+    <form [formGroup]="conditionForm">
+        <section>
+            <input type="radio" id="or" name="operator" value="OR" formControlName="operator">
+            <label for="or">OR</label>
+            <input type="radio" id="and" name="operator" formControlName="operator" value="AND">
+            <label for="and">AND</label>
+        </section>
+
+        <ng-container formArrayName="statements">
+            <ng-container *ngFor="let expression of conditionForm.get('statements')?.controls; index as i">
+                <ng-container [ngSwitch]="expression.get('type').value">
+                    <ng-container *ngSwitchCase="'CONDITION'">
+                        <app-condition [condition]="expression" (removeAt)="removeCondition(i)" data-remove="false"></app-condition>
+                    </ng-container>
+
+                    <ng-container *ngSwitchCase="'EXPRESSION'">
+                        <app-expression [expression]="expression" (removeAt)="removeExpression(i)"></app-expression>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </form>
+</div>

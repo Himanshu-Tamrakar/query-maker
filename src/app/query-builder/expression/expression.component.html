@@ -1,0 +1,23 @@
+<form [formGroup]="expressionForm" class="boundry">
+
+    <div class="expression-top-bar ">
+        <div formGroupName="lOperand">
+            <input formControlName="display" type="text" name="display">
+        </div>
+
+        <select name="operator" formControlName="operator" id="">
+            <option value="">{{expressionForm.get('operator').value}}</option>
+        </select>
+
+        <div formGroupName="rOperand">
+            <input formControlName="display" type="text" name="display">
+        </div>
+
+        <div>
+            <input type="button" name="delete" value="Remove" (click)="remove()">
+        </div>
+    </div>
+
+
+
+</form>
