@@ -16,13 +16,13 @@ export class DesignQueryComponent implements OnInit {
   statementObjectFormTODO: FormGroup;
 
   constructor(private _fb: FormBuilder, private _qbf: QueryBuilderFormService) {
-    // this.statementObjectFormTODO = this._fb.group({
-    //   type: [TYPES[0]],
-    //   operator: [CONDITION_OPERATOR[0]],
-    //   statements: this._fb.array([]),
-    // });
+    this.statementObjectFormTODO = this._fb.group({
+      type: [TYPES[0]],
+      operator: [CONDITION_OPERATOR[0]],
+      statements: this._fb.array([]),
+    });
 
-    this.statementObjectFormTODO = this._qbf.remove();
+    // this.statementObjectFormTODO = this._qbf.remove();
   }
   ngOnInit(): void {}
 }
