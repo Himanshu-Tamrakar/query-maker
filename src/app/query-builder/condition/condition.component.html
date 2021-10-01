@@ -3,13 +3,13 @@
     <section class="btn-group">
         <button type="button" label="Add Expression" (click)="addRule()" class="add-rule"><span class="icon-va-add"></span>Rule</button>
         <button type="button" label="Add Expression" (click)="addRuleset()" class="add-rule"><span class="icon-va-add"></span>Rule Set</button>
-        <button [disabled]="removebtn == 'true'" type="button" label="Add Expression" (click)="remove()" class="add-rule"><span class="icon-va-bin"></span>Remove</button>
+        <button *ngIf="removebtn == 'false'" type="button" label="Add Expression" (click)="remove()" class="add-rule"><span class="icon-va-bin"></span>Remove</button>
     </section>
     <!-- start repeat-column -->
     <form [formGroup]="conditionForm">
         <section class="repeat-radio-group">
             <div class="if-col">
-                <span class="tag-txt">IF</span>
+                <span [hidden]="removebtn == 'false'" class="tag-txt">IF</span>
                 <label for="or"><input type="radio" id="or" name="operator" value="OR" formControlName="operator">OR</label>
                 <label for="and"><input type="radio" id="and" name="operator" formControlName="operator" value="AND">AND</label>
             </div>
