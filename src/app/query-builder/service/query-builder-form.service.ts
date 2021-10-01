@@ -7,9 +7,7 @@ import { TYPES, CONDITION_OPERATOR } from '../modal/query-builder';
   providedIn: 'root',
 })
 export class QueryBuilderFormService {
-  constructor(private _fb: FormBuilder) {
-    this.remove();
-  }
+  constructor(private _fb: FormBuilder) {}
 
   public getExpression() {
     return this._fb.group({
