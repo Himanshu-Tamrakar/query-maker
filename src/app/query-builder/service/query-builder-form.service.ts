@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { TYPES, CONDITION_OPERATOR } from '../modal/query-builder';
 
 @Injectable({
   providedIn: 'root',
 })
 export class QueryBuilderFormService {
-  constructor(private _fb: FormBuilder) {
-    this.remove();
-  }
+  constructor(private _fb: FormBuilder) {}
 
   public getExpression() {
     return this._fb.group({

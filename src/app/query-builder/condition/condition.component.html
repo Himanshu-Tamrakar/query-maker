@@ -1,21 +1,18 @@
-<div class="boundry">
-    <section class="top-bar">
-        <span>Form Builder</span>
-        <span>
-            <button type="button" label="Add Expression" (click)="addRule()">add Rule</button>
-            <button type="button" label="Add Expression" (click)="addRuleset()">add RuleSet</button>
-            <button [disabled]="removebtn == 'true'" type="button" label="Add Expression" (click)="remove()">Remove</button>
-        </span>
-
+<!-- start column -->
+<div class="column">
+    <section class="btn-group">
+        <button type="button" label="Add Expression" (click)="addRule()" class="add-rule"><span class="icon-va-add"></span>Rule</button>
+        <button type="button" label="Add Expression" (click)="addRuleset()" class="add-rule"><span class="icon-va-add"></span>Rule Set</button>
+        <button *ngIf="removebtn == 'false'" type="button" label="Add Expression" (click)="remove()" class="add-rule"><span class="icon-va-bin"></span>Remove</button>
     </section>
-
-
+    <!-- start repeat-column -->
     <form [formGroup]="conditionForm">
-        <section>
-            <input type="radio" id="or" name="operator" value="OR" formControlName="operator">
-            <label for="or">OR</label>
-            <input type="radio" id="and" name="operator" formControlName="operator" value="AND">
-            <label for="and">AND</label>
+        <section class="repeat-radio-group">
+            <div class="if-col">
+                <span [hidden]="removebtn == 'false'" class="tag-txt">IF</span>
+                <label for="or"><input type="radio" id="or" name="operator" value="OR" formControlName="operator">OR</label>
+                <label for="and"><input type="radio" id="and" name="operator" formControlName="operator" value="AND">AND</label>
+            </div>
         </section>
 
         <ng-container formArrayName="statements">
@@ -32,4 +29,6 @@
             </ng-container>
         </ng-container>
     </form>
+    <!-- end repeat-column -->
 </div>
+<!-- end column -->
