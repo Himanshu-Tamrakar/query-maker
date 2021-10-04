@@ -29,11 +29,12 @@
                     <label for="query-builder"><input type="radio" id="query-builder" name="querystatement" checked>Query Builder</label>
                     <label for="statement"><input type="radio" id="statement" name="querystatement">Statement</label>
                 </div>
-                <app-design-query [query]="query"></app-design-query>
-                <!-- <app-condition [condition]="queryObject" data-remove="true"></app-condition> -->
+                <app-design-query [query]="query" [types]="types"></app-design-query>
             </div>
             <!-- end query-builder -->
         </div>
+
+
 
     </div>
 </div>

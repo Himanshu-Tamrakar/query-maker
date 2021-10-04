@@ -6,7 +6,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-rule.component.scss'],
 })
 export class CreateRuleComponent implements OnInit {
-  query: any;
+  types = {
+    string: ['==', 'contains', '<', '>'],
+    number: ['=='],
+    date: ['<'],
+    category: [],
+    float: [],
+    integer: [],
+    boolean: [],
+  };
+  query: any = {
+    type: 'CONDITION',
+    operator: 'OR',
+    statements: [
+      {
+        type: 'EXPRESSION',
+        operator: 'contains',
+        lOperand: {
+          displayName: 'user.firstName',
+          type: 'string',
+          subType: '',
+          value: '',
+        },
+        rOperand: {
+          displayName: 'Himanshu',
+          type: 'string',
+          subType: '',
+          value: '',
+        },
+      },
+    ],
+  };
   // query: any = {
   //   type: 'CONDITION',
   //   operator: 'OR',
