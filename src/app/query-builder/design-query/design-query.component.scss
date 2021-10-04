@@ -1,13 +1,12 @@
-@import url('https://designer-elements.s3.ap-south-1.amazonaws.com/vdesigner-assets/font-icon/style.css');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url("https://designer-elements.s3.ap-south-1.amazonaws.com/vdesigner-assets/font-icon/style.css");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 ::ng-deep * {
   padding: 0;
   margin: 0;
   text-decoration: none;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
-
 
 /* business-rules */
 ::ng-deep .business-rules {
@@ -17,7 +16,7 @@
   }
   .box:after {
     display: table;
-    content: '';
+    content: "";
     clear: both;
   }
   .leftcol-form {
@@ -36,7 +35,7 @@
   .input-row:after {
     display: table;
     clear: both;
-    content: '';
+    content: "";
   }
   .input-col {
     width: 50%;
@@ -154,7 +153,7 @@
   .query-builder .repeat-column .row-col:after {
     display: table;
     clear: both;
-    content: '';
+    content: "";
   }
   .query-builder .repeat-column .col3 {
     width: 33.33%;
@@ -170,7 +169,7 @@
     border-top: 2px dashed #b3bac5;
     width: 16px;
     clear: both;
-    content: '';
+    content: "";
     margin-top: -1px;
     position: absolute;
     left: -8px;
@@ -215,7 +214,7 @@
     background-color: #b3bac5;
     width: 1px;
     height: 24px;
-    content: '';
+    content: "";
     position: absolute;
     left: 4px;
     top: 100%;
@@ -225,7 +224,7 @@
     background-color: #b3bac5;
     width: 8px;
     height: 1px;
-    content: '';
+    content: "";
     margin-top: 23px;
     position: absolute;
     left: 4px;
@@ -240,19 +239,19 @@
     place-content: center flex-end;
     align-items: center;
     .add-rule {
-        background: none;
-        border: none;
-        padding: 0;
-        margin: 0 0 0 16px;
-        display: flex;
-        font-size: 12px;
-        color: #2883f3;
-        font-weight: 600;
-        cursor: pointer;
-        span {
-            display: block;
-            margin-right: 4px;
-        }
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0 0 0 16px;
+      display: flex;
+      font-size: 12px;
+      color: #2883f3;
+      font-weight: 600;
+      cursor: pointer;
+      span {
+        display: block;
+        margin-right: 4px;
+      }
     }
   }
 
@@ -270,5 +269,4 @@
     max-height: 400px;
     overflow: auto;
   }
-
 }

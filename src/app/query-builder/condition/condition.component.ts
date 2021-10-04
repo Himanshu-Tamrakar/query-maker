@@ -32,13 +32,14 @@ export class ConditionComponent implements OnInit {
     this.removebtn = this.container.element.nativeElement.dataset.remove;
   }
 
-  getRule(): any {
+  getRule(): FormGroup {
     return this.qbform.getExpression();
   }
 
-  getRuleset() {
+  getRuleset(): FormGroup {
     return this.qbform.getGroupExpression();
   }
+
   addRule() {
     var crtl: FormArray = this.conditionForm.get('statements') as FormArray;
     crtl.push(this.getRule());
@@ -54,6 +55,7 @@ export class ConditionComponent implements OnInit {
     crtl.removeAt(i);
   }
 
+  // For removing fieldGroup: start
   removeCondition(i: number) {
     var crtl: FormArray = this.conditionForm?.get('statements') as FormArray;
     crtl.removeAt(i);
@@ -62,4 +64,6 @@ export class ConditionComponent implements OnInit {
   remove() {
     this.removeEvt.emit();
   }
+
+  // For removing fieldGroup: end
 }

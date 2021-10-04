@@ -29,14 +29,14 @@
                     <label for="query-builder"><input type="radio" id="query-builder" name="querystatement" checked>Query Builder</label>
                     <label for="statement"><input type="radio" id="statement" name="querystatement">Statement</label>
                 </div>
-                <app-condition [condition]="statementObjectFormTODO" data-remove="true"></app-condition>
+                <app-condition [condition]="queryObject" data-remove="true"></app-condition>
             </div>
             <!-- end query-builder -->
         </div>
         <div class="rightcol-viewer">
             <!-- start json-viewer -->
             <div class="json-viewer">
-                <pre>{{statementObjectFormTODO.value | json}}</pre>
+                <pre>{{queryObject.value | json}}</pre>
             </div>
             <!-- end json-viewer -->
         </div>
