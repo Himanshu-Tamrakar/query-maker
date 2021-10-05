@@ -12,12 +12,26 @@ import {
   providedIn: 'root',
 })
 export class QueryBuilderFormService {
+  private _types: any;
+
   constructor(private _fb: FormBuilder) {}
+
+  get types() {
+    return this._types;
+  }
+
+  set types(typesAndOperators) {
+    this._types = typesAndOperators;
+  }
+
+  getOperatorOfType(type) {
+    return this.types[type];
+  }
 
   public getExpression(): FormGroup {
     return this._fb.group({
       type: [TYPES[1]],
-      operator: '',
+      operator: '<',
       lOperand: this.getOperandGroup(),
       rOperand: this.getOperandGroup(),
     });
@@ -39,7 +53,12 @@ export class QueryBuilderFormService {
   }
 
   private getOperandGroup(
-    opearand: IOperand = { displayName: '', type: '', subType: '', value: '' }
+    opearand: IOperand = {
+      displayName: 'user.lastName',
+      type: 'string',
+      subType: '',
+      value: '',
+    }
   ): FormGroup {
     return this._fb.group({
       displayName: opearand.displayName,

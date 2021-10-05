@@ -8,6 +8,8 @@ import { QueryBuilderFormService } from '../service/query-builder-form.service';
 })
 export class DesignQueryComponent implements OnInit {
   @Input('query') queryObject: any;
+  @Input('types') typeAndOperators: any;
+
   constructor(private _qbf: QueryBuilderFormService) {}
 
   ngOnInit(): void {
@@ -16,5 +18,7 @@ export class DesignQueryComponent implements OnInit {
     } else {
       this.queryObject = this._qbf.getGroupExpression();
     }
+
+    this._qbf.types = this.typeAndOperators;
   }
 }
