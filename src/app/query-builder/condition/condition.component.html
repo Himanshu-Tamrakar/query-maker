@@ -19,11 +19,13 @@
             <ng-container *ngFor="let expression of conditionForm.get('statements')?.controls; index as i">
                 <ng-container [ngSwitch]="expression.get('type').value">
                     <ng-container *ngSwitchCase="'CONDITION'">
-                        <app-condition [condition]="expression" (removeAt)="removeCondition(i)" data-remove="false"></app-condition>
+                        
+                        <app-condition [ngClass]="{'checkedClass': i == 0}"  [condition]="expression" (removeAt)="removeCondition(i)" data-remove="false"></app-condition>
                     </ng-container>
 
                     <ng-container *ngSwitchCase="'EXPRESSION'">
-                        <app-expression [expression]="expression" (removeAt)="removeExpression(i)"></app-expression>
+                        
+                        <app-expression [ngClass]="{'checkedClass': i == 0}" [expression]="expression" (removeAt)="removeExpression(i)"></app-expression>
                     </ng-container>
                 </ng-container>
             </ng-container>

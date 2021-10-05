@@ -29,6 +29,7 @@ export class ConditionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log('aaa', this.container.element.nativeElement.dataset.remove);
     this.removebtn = this.container.element.nativeElement.dataset.remove;
   }
 
