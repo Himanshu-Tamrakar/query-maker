@@ -8,9 +8,7 @@ import {
   IOperand,
 } from '../modal/query-builder';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class QueryBuilderFormService {
   private _types: any;
 

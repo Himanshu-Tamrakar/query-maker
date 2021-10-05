@@ -65,6 +65,5 @@ export class ConditionComponent implements OnInit {
   remove() {
     this.removeEvt.emit();
   }
-
   // For removing fieldGroup: end
 }
