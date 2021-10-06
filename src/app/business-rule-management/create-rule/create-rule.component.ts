@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/core/httpclient/api.service';
+import { BrmService } from '../service/brm.service';
 
 @Component({
   selector: 'app-create-rule',
@@ -188,7 +190,7 @@ export class CreateRuleComponent implements OnInit {
   //     },
   //   ],
   // };
-  constructor() {}
+  constructor(private brm: BrmService, api: ApiService) {}
 
   ngOnInit(): void {}
 }
