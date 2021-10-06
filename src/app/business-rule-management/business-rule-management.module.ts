@@ -10,6 +10,6 @@ import { RuleDetailsComponent } from './rule-details/rule-details.component';
 @NgModule({
   declarations: [CreateRuleComponent, BusinessRulesComponent, CardViewComponent, ListViewComponent, RuleDetailsComponent],
   imports: [CommonModule, QueryBuilderModule],
-  exports: [CreateRuleComponent],
+  exports: [CreateRuleComponent, BusinessRulesComponent],
 })
-export class BusinessRuleManagementModule {}
+export class BusinessRuleManagementModule { }

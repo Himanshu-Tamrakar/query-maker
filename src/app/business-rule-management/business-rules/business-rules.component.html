@@ -1,1 +1,40 @@
-<p>business-rules works!</p>
+<div class="">
+    <div class="header-mini start-center">
+        <strong>Business Rule</strong>
+    </div>
+    <div class="start-start">
+        <div class="left-section">
+            <div class="filter-options start-center">
+                <div class="input-container filter">
+                    <div class="input-bx">
+                        <a href="javascript:void(0)" aria-label="blank" class="input-icon">
+                            <span class="icon-box icon-va-search"></span>
+                        </a>
+                        <input id="" type="text" placeholder="Search" name="account_name">
+                    </div>
+                </div>
+                <div class="end-center action-container">
+                    <a href="javascript:void(0)" class="anchor-ctm"><span class="icon-box icon-va-add"></span>Add New
+                        Business
+                        Rule</a>
+                    <div class="layout-view center-center">
+                        <a href="javascript:void(0)" (click)="highLightView('list')" class="center-center">
+                            <span class="icon-box icon-va-format-list" [class.active]="selectedView=='list'"></span>
+                        </a>
+                        <a href="javascript:void(0)" (click)="highLightView('thumbnail')" class="center-center">
+                            <span class="icon-box icon-va-grid" [class.active]="selectedView=='thumbnail'"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <app-card-view *ngIf="selectedView=='thumbnail'"></app-card-view>
+            <app-list-view *ngIf="selectedView=='list'"></app-list-view>
+        </div>
+        <app-rule-details class="info-bx"></app-rule-details>
+    </div>
+    <div class="bussiness-rule-source">
+        <div class="pan-api-btn update-btn-btn width-full" fxLayoutAlign="end center">
+            <button mat-button class="mat-button primary-cta">Update</button>
+        </div>
+    </div>
+</div>
