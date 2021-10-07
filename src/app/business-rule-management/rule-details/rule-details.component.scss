@@ -1,9 +1,9 @@
 @import "/src/styles.scss";
+.icon-box {
+    color: $neutral-mid1;
+    cursor: pointer;
+}
 .rule-info-content {
-    .icon-box {
-        color: $neutral-mid1;
-        cursor: pointer;
-    }
     .deatails-area {
         padding: 4px 6px;
         > div {
