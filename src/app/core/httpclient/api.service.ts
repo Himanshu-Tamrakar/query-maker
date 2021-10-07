@@ -13,12 +13,14 @@ export class ApiService {
   }
 
   get<I>(endpoint, options?): Observable<HttpEvent<I>> {
-    // options['withCredentials'] = true;
-    options['crossDomain'] = true;
+    options['withCredentials'] = true;
+    options['observe'] = 'body';
+    // options['crossDomain'] = true;
     return this.http
       .get<I>(endpoint ? endpoint : environment?.endpoint, options)
       .pipe(
         catchError((error) => {
+          console.log('error', error);
           return of(error.error);
         })
       );

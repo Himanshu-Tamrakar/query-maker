@@ -15,9 +15,14 @@ export class BrmService {
   getOperators() {
     const path = '/sys-entities/operators';
     this.apiService
-      .get<any>(`${environment.endpoint}${path}`)
-      .subscribe((res) => {
-        console.log(res);
-      });
+      .get<any>(`${environment.endpoint}${path}`, {
+        headers: { requestid: Date.now() + '' },
+      })
+      .subscribe(
+        (res) => {
+          console.log(res);
+        },
+        (err) => console.log('error1', err)
+      );
   }
 }

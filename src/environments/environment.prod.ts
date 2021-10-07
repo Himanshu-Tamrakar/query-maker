@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  endpoint: 'https://accounts-dev.vahanacloud.com/backend/earth/api/v1',
+  endpoint:
+    'https://console-dev.vahanacloud.com/backend/earth/brm-system-manager/api/v1',
 };
