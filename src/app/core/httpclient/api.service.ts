@@ -8,9 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private http: HttpClient) {
-    console.log('API Service');
-  }
+  constructor(private http: HttpClient) {}
 
   get<I>(endpoint, options?): Observable<HttpEvent<I>> {
     options['withCredentials'] = true;
@@ -20,7 +18,6 @@ export class ApiService {
       .get<I>(endpoint ? endpoint : environment?.endpoint, options)
       .pipe(
         catchError((error) => {
-          console.log('error', error);
           return of(error.error);
         })
       );
