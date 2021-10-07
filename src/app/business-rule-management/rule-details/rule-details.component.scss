@@ -1,9 +1,15 @@
 @import "/src/styles.scss";
+.icon-box {
+    color: $neutral-mid1;
+    cursor: pointer;
+}
 .rule-info-content {
-    padding: 4px 6px;
-    > div {
-        padding: 8px 6px;
-        color: $neutral-mid1;
+    .deatails-area {
+        padding: 4px 6px;
+        > div {
+            padding: 8px 6px;
+            color: $neutral-mid1;
+        }
     }
     .label-txt {
         font-size: 11px;
@@ -31,5 +37,131 @@
             display: block;
             border-radius: 8px;
         }
+    }
+    .tabs-container {
+        padding: 0;
+        ul {
+            position: relative;
+            li {
+                width: 50%;
+                padding-bottom: 8px;
+                list-style: none;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border-bottom: solid 2px transparent;
+                transition: $transition;
+                strong {
+                    font-weight: 400;
+                    font-size: 11px;
+                    line-height: 14px;
+                    transition: $transition;
+                }
+                &.active {
+                    border-bottom: solid 2px $primary-color1;
+                    transition: $transition;
+                    strong {
+                        color: $primary-color1;
+                        font-weight: 600;
+                        transition: $transition;
+                    }
+                }
+                .icon-box {
+                    margin-right: 8px;
+                    color: $neutral-mid4;
+                }
+            }
+            &::after {
+                content: "";
+                background: $neutral-light1;
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                left: 0;
+                bottom: -1px;
+            }
+        }
+        .tabs-content {
+            padding: 6px;
+            > div {
+                padding: 6px;
+                .accordion {
+                    height: 32px;
+                    border-radius: 4px;
+                    border: solid 1px $neutral-light1;
+                    overflow: hidden;
+                    transition: $transition;
+                    .accordion-header {
+                        height: 32px;
+                        padding: 0 12px;
+                        .icon-va-expand-more {
+                            transition: $transition;
+                        }
+                        section {
+                            strong {
+                                margin-left: 8px;
+                            }
+                            .icon-va-bin {
+                                margin-left: 16px;
+                            }
+                        }
+                    }
+                    .accordion-content {
+                        background: $neutral-light3;
+                        padding: 12px;
+                        height: 0;
+                        overflow: hidden;
+                        opacity: 0;
+                        transition: $transition;
+                    }
+                    input[type="checkbox"] {
+                        width: 16px;
+                        height: 16px;
+                        margin-right: 8px;
+                        border: solid 2px $neutral-light1;
+                    }
+                    &:hover {
+                        background: $neutral-light3;
+                        border: solid 1px transparent;
+                        transition: $transition;
+                    }
+                    &.opened {
+                        height: auto;
+                        .accordion-header {
+                            background: $white;
+                            .icon-va-expand-more {
+                                transform: rotate(180deg);
+                                transition: $transition;
+                            }
+                        }
+                        .accordion-content {
+                            height: auto;
+                            overflow: visible;
+                            opacity: 1;
+                            transition: $transition;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.rule-info-footer {
+    background: $neutral-light4;
+    padding: 16px;
+    border-top: solid 1px $neutral-light1;
+    > * {
+        margin-left: 8px;
+    }
+    .mat-button {
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .mat-button.primary-cta {
+        color: $white;
+    }
+    .mat-button.tertiary-cta {
+        color: $neutral-mid1;
     }
 }

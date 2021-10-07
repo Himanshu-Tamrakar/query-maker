@@ -7,22 +7,12 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class BrmService {
-  constructor(private apiService: ApiService) {
-    console.log('BRM service');
-    // this.getOperators();
-  }
+  constructor(private apiService: ApiService) {}
 
   getOperators() {
     const path = '/sys-entities/operators';
-    this.apiService
-      .get<any>(`${environment.endpoint}${path}`, {
-        headers: { requestid: Date.now() + '' },
-      })
-      .subscribe(
-        (res) => {
-          console.log(res);
-        },
-        (err) => console.log('error1', err)
-      );
+    return this.apiService.get<any>(`${environment.endpoint}${path}`, {
+      headers: { requestid: Date.now() + '' },
+    });
   }
 }

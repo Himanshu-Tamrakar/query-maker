@@ -13,6 +13,7 @@ export class DesignQueryComponent implements OnInit {
   constructor(private _qbf: QueryBuilderFormService) {}
 
   ngOnInit(): void {
+    debugger;
     if (this.queryObject) {
       this.queryObject = this._qbf.initiate(this.queryObject);
     } else {
@@ -20,5 +21,6 @@ export class DesignQueryComponent implements OnInit {
     }
 
     this._qbf.types = this.typeAndOperators;
+    console.log(this._qbf.types);
   }
 }

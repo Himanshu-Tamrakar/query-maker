@@ -110,8 +110,28 @@
     font-size: 12px;
     color: #172b4d;
     font-weight: 600;
+    align-items: center;
+    line-height: 19px;
+    input {
+      margin-right: 6px !important;
+    }
   }
   .query-builder .radio-group label input {
     margin: 0 4px 0 0;
+  }
+}
+::ng-deep {
+  input[type="radio"] {
+    width: initial;
+    height: initial;
+    margin: 0 !important;
+  }
+  .repeat-radio-group {
+    input {
+      margin-right: 6px !important;
+    }
+    label {
+      line-height: 14px;
+    }
   }
 }

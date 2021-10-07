@@ -53,7 +53,7 @@ export class QueryBuilderFormService {
   private getOperandGroup(
     opearand: IOperand = {
       displayName: 'user.lastName',
-      type: 'string',
+      type: 'integer',
       subType: '',
       value: '',
     }
