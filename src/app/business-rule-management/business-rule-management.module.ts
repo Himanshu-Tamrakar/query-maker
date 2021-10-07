@@ -17,7 +17,7 @@ import { BrmService } from './service/brm.service';
     RuleDetailsComponent,
   ],
   imports: [CommonModule, QueryBuilderModule],
-  exports: [CreateRuleComponent],
+  exports: [CreateRuleComponent, BusinessRulesComponent],
   providers: [BrmService],
 })
 export class BusinessRuleManagementModule {}

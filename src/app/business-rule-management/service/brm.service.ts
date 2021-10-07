@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class BrmService {
   constructor(private apiService: ApiService) {
     console.log('BRM service');
-    this.getOperators();
+    // this.getOperators();
   }
 
   getOperators() {

@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusinessRulesComponent implements OnInit {
 
+  selectedView = 'thumbnail';
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  highLightView(view) {
+    this.selectedView = view;
   }
 
 }
