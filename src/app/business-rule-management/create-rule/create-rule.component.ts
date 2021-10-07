@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/core/httpclient/api.service';
 import { BrmService } from '../service/brm.service';
+interface IOperator {
+  code: string;
+  message: string;
+  data: any;
+}
 
 @Component({
   selector: 'app-create-rule',
@@ -9,7 +13,7 @@ import { BrmService } from '../service/brm.service';
   styleUrls: ['./create-rule.component.scss'],
 })
 export class CreateRuleComponent implements OnInit {
-  types: object;
+  types: IOperator;
   query: any = {
     type: 'CONDITION',
     operator: 'OR',
@@ -184,7 +188,7 @@ export class CreateRuleComponent implements OnInit {
   //   ],
   // };
   constructor(private brm: BrmService, api: ApiService) {
-    this.brm.getOperators().subscribe((res) => (this.types = res['data']));
+    this.brm.getOperators().subscribe((res: any) => (this.types = res?.data));
   }
 
   ngOnInit(): void {}
