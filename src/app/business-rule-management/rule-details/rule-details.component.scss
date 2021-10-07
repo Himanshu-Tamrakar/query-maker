@@ -1,0 +1,35 @@
+@import "/src/styles.scss";
+.rule-info-content {
+    padding: 4px 6px;
+    > div {
+        padding: 8px 6px;
+        color: $neutral-mid1;
+    }
+    .label-txt {
+        font-size: 11px;
+        line-height: 16px;
+    }
+    .rule-name {
+        display: flex;
+        flex-direction: column;
+        strong {
+            margin-top: 4px;
+            color: $neutral-dark3;
+        }
+    }
+    textarea {
+        height: 40px;
+        color: $neutral-dark1;
+        resize: none;
+        &:disabled {
+            background: $neutral-mid1;
+            height: 80px;
+            padding: 16px;
+            margin-top: 4px;
+            color: $white;
+            font-size: 11px;
+            display: block;
+            border-radius: 8px;
+        }
+    }
+}

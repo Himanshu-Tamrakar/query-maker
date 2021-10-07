@@ -190,3 +190,24 @@ a.anchor-ctm {
     width: 346px;
     border-left: solid 1px $neutral-light1;
 }
+
+.label-txt {
+    font-size: 10px;
+    line-height: 14px;
+    color: $neutral-mid3;
+    display: block;
+}
+.chip-bx {
+    display: flex;
+    flex-wrap: wrap;
+    span {
+        min-height: 20px;
+        padding: 0 10px;
+        margin-right: 8px;
+        display: inline-flex;
+        font-weight: 600;
+        color: $neutral-mid1;
+        border-radius: 10px;
+        border: solid 1px $neutral-light1;
+    }
+}

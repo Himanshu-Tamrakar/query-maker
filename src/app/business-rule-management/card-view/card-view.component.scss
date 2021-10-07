@@ -25,15 +25,12 @@
             }
             > div {
                 padding: 12px;
-                .label-txt {
-                    font-size: 10px;
-                    line-height: 14px;
-                    color: $neutral-mid3;
-                    display: block;
-                }
                 strong {
                     word-break: break-all;
                 }
+            }
+            .chip-bx {
+                margin-top: 10px;
             }
             .rule-bx {
                 background: $neutral-light4;
