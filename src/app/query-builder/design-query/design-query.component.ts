@@ -1,10 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import {
-  IQueryBuilder,
-  TYPES,
-  CONDITION_OPERATOR,
-} from '../modal/query-builder';
+import { Component, Input, OnInit } from '@angular/core';
+import { HelperService } from '../service/helper.service';
 import { QueryBuilderFormService } from '../service/query-builder-form.service';
 
 @Component({
@@ -13,16 +8,27 @@ import { QueryBuilderFormService } from '../service/query-builder-form.service';
   styleUrls: ['./design-query.component.scss'],
 })
 export class DesignQueryComponent implements OnInit {
-  statementObjectFormTODO: FormGroup;
+  @Input('query') queryObject: any;
+  @Input('types') typeAndOperators: any;
 
-  constructor(private _fb: FormBuilder, private _qbf: QueryBuilderFormService) {
-    // this.statementObjectFormTODO = this._fb.group({
-    //   type: [TYPES[0]],
-    //   operator: [CONDITION_OPERATOR[0]],
-    //   statements: this._fb.array([]),
-    // });
+  constructor(
+    private _qbf: QueryBuilderFormService,
+    private _helper: HelperService
+  ) {}
 
-    this.statementObjectFormTODO = this._qbf.remove();
+  ngOnInit(): void {
+    if (this.queryObject) {
+      this.queryObject = this._qbf.initiate(this.queryObject);
+    } else {
+      this.queryObject = this._qbf.getGroupExpression();
+    }
+
+    this._qbf.types = this.typeAndOperators;
   }
-  ngOnInit(): void {}
+
+  getQuery(obj) {
+    var res = { query: '' };
+    this._helper.objToQuery(obj, res);
+    return res;
+  }
 }

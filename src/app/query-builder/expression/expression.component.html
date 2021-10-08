@@ -5,15 +5,14 @@
     </div>
     <div class="row-col">
         <div formGroupName="lOperand" class="col3">
-            <input formControlName="display" type="text" name="display" class="form-control">
+            <input formControlName="displayName" type="text" name="display" class="form-control">
         </div>
         <div class="col3">
-            <select name="operator" formControlName="operator" id="" class="form-control">
-                <option value="">{{expressionForm.get('operator').value}}</option>
+            <select name="operator" formControlName="operator" class="form-control">
             </select>
         </div>
         <div formGroupName="rOperand" class="col3">
-            <input formControlName="display" type="text" name="display" class="form-control">
+            <input formControlName="displayName" type="text" name="display" class="form-control">
         </div>
     </div>
 </form>

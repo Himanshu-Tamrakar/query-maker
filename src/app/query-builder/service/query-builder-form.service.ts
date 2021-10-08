@@ -1,23 +1,41 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { TYPES, CONDITION_OPERATOR } from '../modal/query-builder';
+import {
+  TYPES,
+  CONDITION_OPERATOR,
+  IQuery,
+  IStatement,
+  IOperand,
+} from '../modal/query-builder';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class QueryBuilderFormService {
+  private _types: any;
+
   constructor(private _fb: FormBuilder) {}
 
-  public getExpression() {
+  get types() {
+    return this._types;
+  }
+
+  set types(typesAndOperators) {
+    this._types = typesAndOperators;
+  }
+
+  getOperatorOfType(type) {
+    return this.types[type];
+  }
+
+  public getExpression(): FormGroup {
     return this._fb.group({
       type: [TYPES[1]],
-      operator: '',
+      operator: '<',
       lOperand: this.getOperandGroup(),
       rOperand: this.getOperandGroup(),
     });
   }
 
-  public getGroupExpression() {
+  public getGroupExpression(): FormGroup {
     return this._fb.group({
       type: [TYPES[0]],
       operator: [CONDITION_OPERATOR[0]],
@@ -25,7 +43,7 @@ export class QueryBuilderFormService {
     });
   }
 
-  private getEmptyGroup() {
+  private getEmptyGroup(): FormGroup {
     return this._fb.group({
       type: '',
       operator: '',
@@ -33,124 +51,52 @@ export class QueryBuilderFormService {
   }
 
   private getOperandGroup(
-    opearand = { display: '', type: '', subType: '', value: '' }
-  ) {
+    opearand: IOperand = {
+      displayName: (Math.floor(Math.random() * 1000) % 100) + '',
+      type: 'integer',
+      subType: '',
+      value: '',
+    }
+  ): FormGroup {
     return this._fb.group({
-      display: opearand.display,
+      displayName: opearand.displayName,
       type: opearand.type,
       subType: opearand.subType,
       value: opearand?.value,
     });
   }
 
-  remove() {
-    var var0 = {
-      type: 'CONDITION',
-      operator: 'OR',
-      statements: [
-        {
-          type: 'EXPRESSION',
-          operator: 'GT',
-          lOperand: {
-            display: '$user.username',
-            type: 'Operend',
-            subType: 'data',
-            value: 'var(emp.age)',
-          },
-          rOperand: {
-            display: '$user.age',
-            type: 'Operend',
-            subType: 'data',
-            value: 21,
-          },
-        },
-        {
-          type: 'CONDITION',
-          operator: 'OR',
-          statements: [
-            {
-              type: 'EXPRESSION',
-              operator: 'GT',
-              lOperand: {
-                display: '$user.username',
-                type: 'Operend',
-                subType: 'data',
-                value: 'var(emp.age)',
-              },
-              rOperand: {
-                display: '$user.age',
-                type: 'Operend',
-                subType: 'data',
-                value: 21,
-              },
-            },
-            {
-              type: 'EXPRESSION',
-              operator: 'GT',
-              lOperand: {
-                display: '$user.username',
-                type: 'Operend',
-                subType: 'data',
-                value: 'var(emp.age)',
-              },
-              rOperand: {
-                display: '$user.age',
-                type: 'Operend',
-                subType: 'data',
-                value: 21,
-              },
-            },
-            {
-              type: 'CONDITION',
-              operator: 'OR',
-              statements: [],
-            },
-          ],
-        },
-        {
-          type: 'EXPRESSION',
-          operator: 'GT',
-          lOperand: {
-            display: '$user.username',
-            type: 'Operend',
-            subType: 'data',
-            value: 'var(emp.age)',
-          },
-          rOperand: {
-            display: '$user.age',
-            type: 'Operend',
-            subType: 'data',
-            value: 21,
-          },
-        },
-      ],
-    };
-
-    var var1 = this.getEmptyGroup();
-
-    this.formObjectToForm(var1, var0);
-
-    return var1;
+  public initiate(input: IQuery): FormGroup {
+    var var0 = this.getEmptyGroup();
+    this.objectToFormGroup(var0, input);
+    return var0;
   }
 
-  public formObjectToForm(statementForm: FormGroup, inputTODO): any {
-    statementForm.get('type').setValue(inputTODO.type);
-    statementForm.get('operator').setValue(inputTODO.operator);
+  public objectToFormGroup(
+    statementForm: FormGroup,
+    queryObj: IQuery | IStatement
+  ): void {
+    statementForm.get('type').setValue(queryObj.type);
+    statementForm.get('operator').setValue(queryObj.operator);
 
-    if (inputTODO?.type === TYPES[0]) {
+    if (queryObj?.type === TYPES[0]) {
+      queryObj = queryObj as IQuery;
+
       let formArray = this._fb.array([]);
       statementForm.addControl('statements', formArray);
 
-      for (const iterator of inputTODO?.statements) {
+      for (const iterator of queryObj?.statements) {
         let formGroup = this.getEmptyGroup();
         formArray.push(formGroup);
 
-        this.formObjectToForm(formGroup, iterator);
+        this.objectToFormGroup(formGroup, iterator);
       }
-    } else if (inputTODO?.type === TYPES[1]) {
-      let leftOparandGroup = this.getOperandGroup(inputTODO?.lOperand);
+    } else if (queryObj?.type === TYPES[1]) {
+      queryObj = queryObj as IStatement;
 
-      let rightOperandGroup = this.getOperandGroup(inputTODO?.rOperand);
+      let leftOparandGroup = this.getOperandGroup(queryObj?.lOperand);
+
+      let rightOperandGroup = this.getOperandGroup(queryObj?.rOperand);
 
       statementForm.addControl('lOperand', leftOparandGroup);
       statementForm.addControl('rOperand', rightOperandGroup);

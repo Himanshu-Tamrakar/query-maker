@@ -1,0 +1,121 @@
+<div class="header-mini space-between">
+    <strong>Info</strong>
+    <a href="javascript:void(0)" class="center-center">
+        <span class="icon-box icon-va-close"></span>
+    </a>
+</div>
+<div class="rule-info-content">
+    <div class="deatails-area">
+        <div class="space-between">
+            <strong>Info</strong>
+            <a href="javascript:void(0)" class="center-center">
+                <span class="icon-box icon-va-edit"></span>
+            </a>
+        </div>
+        <div class="rule-name">
+            <span class="">Rule Name</span>
+            <strong>Rule Name</strong>
+        </div>
+        <div class="chip-bx">
+            <span>Tag_1</span>
+            <span>Tag_2</span>
+        </div>
+        <div>
+            <span class="label-txt">Expression</span>
+            <textarea disabled name="" id="" cols="30"
+                rows="10">Employee_Grade  ==  “C”  AND  Age  >=45  And  Salary in  [ 450000, 1000000]</textarea>
+        </div>
+        <div>
+            <span class="label-txt">Description</span>
+            <textarea name="" id="" cols="30"
+                rows="10">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</textarea>
+        </div>
+    </div>
+    <div class="tabs-container">
+        <ul>
+            <li class="active">
+                <span class="icon-box icon-va-info"></span>
+                <strong>Current References</strong>
+            </li>
+            <li>
+                <span class="icon-box icon-va-info"></span>
+                <strong>Other References</strong>
+            </li>
+        </ul>
+        <div class="tabs-content">
+            <div>
+                <div class="accordion">
+                    <div class="space-between accordion-header">
+                        <section class="start-center">
+                            <span class="icon-box icon-va-expand-more"></span>
+                            <strong>Input</strong>
+                        </section>
+                        <section class="start-center">
+                            <span class="icon-box icon-va-edit"></span>
+                            <span class="icon-box icon-va-bin"></span>
+                        </section>
+                    </div>
+                    <div class="accordion-content">
+                        <p>- Property 1</p>
+                        <p>- Property 2</p>
+                        <p>- Property 3</p>
+                        <p>- Property 4</p>
+                        <p>- Property 5</p>
+                        <p>- Property 6</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="accordion" [class.opened]="true">
+                    <div class="space-between accordion-header">
+                        <section class="start-center">
+                            <span class="icon-box icon-va-expand-more"></span>
+                            <strong>Input</strong>
+                        </section>
+                        <section class="start-center">
+                            <span class="icon-box icon-va-edit"></span>
+                            <span class="icon-box icon-va-bin"></span>
+                        </section>
+                    </div>
+                    <div class="accordion-content">
+                        <p>- Property 1</p>
+                        <p>- Property 2</p>
+                        <p>- Property 3</p>
+                        <p>- Property 4</p>
+                        <p>- Property 5</p>
+                        <p>- Property 6</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="accordion" [class.opened]="true">
+                    <div class="space-between accordion-header">
+                        <section class="start-center">
+                            <input type="checkbox" name="input" id="input">
+                            <span class="icon-box icon-va-expand-more"></span>
+                            <strong>Input</strong>
+                        </section>
+                        <section class="start-center">
+                            <span class="icon-box icon-va-edit"></span>
+                            <span class="icon-box icon-va-bin"></span>
+                        </section>
+                    </div>
+                    <div class="accordion-content">
+                        <p>- Property 1</p>
+                        <p>- Property 2</p>
+                        <p>- Property 3</p>
+                        <p>- Property 4</p>
+                        <p>- Property 5</p>
+                        <p>- Property 6</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rule-info-footer end-center">
+    <button mat-button class="mat-button tertiary-cta">Apply to selection</button>
+    <button mat-button class="mat-button primary-cta">Apply to all</button>
+</div>

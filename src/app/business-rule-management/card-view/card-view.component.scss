@@ -1,0 +1,64 @@
+@import "/src/styles.scss";
+.card-wrapper {
+    padding: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    > div {
+        width: 33.33%;
+        padding: 6px;
+        .card-ctm {
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 8px;
+            border: solid 1px $neutral-light1;
+            transition: $transition;
+            .icon-va-check2 {
+                color: $secondary-color3;
+            }
+            .icon-box {
+                overflow: hidden;
+                opacity: 0;
+                transition: $transition;
+            }
+            > div {
+                padding: 12px;
+                strong {
+                    word-break: break-all;
+                }
+            }
+            .chip-bx {
+                margin-top: 10px;
+            }
+            .rule-bx {
+                background: $neutral-light4;
+                .label-txt {
+                    margin-bottom: 2px;
+                }
+                p {
+                    font-size: 11px;
+                    line-height: 16px;
+                    color: $neutral-dark3;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+            }
+            &.active {
+                border: solid 1px $neutral-mid1;
+                transition: $transition;
+                .icon-box {
+                    overflow: visible;
+                    opacity: 1;
+                    transition: $transition;
+                }
+            }
+        }
+        > * {
+            color: $neutral-dark3;
+        }
+    }
+}
