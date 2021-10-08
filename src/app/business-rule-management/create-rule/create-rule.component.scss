@@ -1,0 +1,137 @@
+@import url("https://designer-elements.s3.ap-south-1.amazonaws.com/vdesigner-assets/font-icon/style.css");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+::ng-deep * {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* business-rules */
+.business-rules {
+  padding: 16px 12px 12px;
+  .box {
+    display: flex;
+  }
+  .box:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+  .leftcol-form {
+    width: 50%;
+    float: left;
+    padding-right: 8px;
+  }
+  .rightcol-viewer {
+    width: 50%;
+    float: left;
+    padding-left: 8px;
+  }
+  .input-row {
+    margin: 0 -8px;
+  }
+  .input-row:after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+  .input-col {
+    width: 50%;
+    float: left;
+    padding: 0 8px;
+  }
+  .form-group {
+    margin-bottom: 16px;
+  }
+  label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 10px;
+    color: #505f79;
+    line-height: 14px;
+  }
+  ::ng-deep .form-control {
+    border: 1px solid #dfe1e6;
+    background-color: #fff;
+    width: 100%;
+    display: block;
+    padding: 3px 8px;
+    font-size: 11px;
+    color: #253858;
+    line-height: 16px;
+    border-radius: 2px;
+    resize: none;
+    outline: none;
+  }
+  .chips {
+    padding: 0 4px;
+    display: flex;
+  }
+  .chips .chip {
+    background-color: #505f79;
+    display: inline-block;
+    margin: 2px 4px;
+    padding: 0 4px 0 6px;
+    font-size: 11px;
+    color: #fff;
+    line-height: 16px;
+    border-radius: 30px;
+  }
+  .chips .close {
+    background-color: #dfe1e6;
+    width: 12px;
+    height: 12px;
+    float: right;
+    margin: 3px 0 0 6px;
+    text-align: center;
+    font-size: 10px;
+    color: #505f79;
+    line-height: 12px;
+    border-radius: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  .chips input {
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+    width: auto;
+    display: inline-block;
+    min-height: 22px;
+    height: auto;
+    padding: 0;
+    box-shadow: none !important;
+  }
+  .query-builder .radio-group label {
+    display: inline-flex;
+    margin-right: 12px;
+    font-size: 12px;
+    color: #172b4d;
+    font-weight: 600;
+    align-items: center;
+    line-height: 19px;
+    input {
+      margin-right: 6px !important;
+    }
+  }
+  .query-builder .radio-group label input {
+    margin: 0 4px 0 0;
+  }
+}
+::ng-deep {
+  input[type="radio"] {
+    width: initial;
+    height: initial;
+    margin: 0 !important;
+  }
+  .repeat-radio-group {
+    input {
+      margin-right: 6px !important;
+    }
+    label {
+      line-height: 14px;
+    }
+  }
+}

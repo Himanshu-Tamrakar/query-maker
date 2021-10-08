@@ -1,0 +1,21 @@
+@import "/src/styles.scss";
+table {
+  width: 100%;
+  border-collapse: collapse;
+  th,
+  td {
+    padding: 8.5px 12px;
+    text-align: left;
+    color: $neutral-dark4;
+  }
+  thead tr {
+    background: $neutral-light3;
+    th {
+      font-weight: 600;
+      color: $neutral-mid1;
+    }
+  }
+  tbody tr:nth-child(even) {
+    background: $neutral-light4;
+  }
+}

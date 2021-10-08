@@ -1,45 +1,11 @@
-<!-- start business-rules -->
-<div class="business-rules">
-    <div lang="box">
-        <div class="leftcol-form">
-            <div class="input-row">
-                <div class="input-col">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" placeholder="Rule_Name" class="form-control">
-                    </div>
-                </div>
-                <div class="input-col">
-                    <div class="form-group">
-                        <label>Tags</label>
-                        <div class="form-control chips">
-                            <div class="chip">Failure<i class="icon-va-close close"></i></div>
-                            <input type="text">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Description (Optional)</label>
-                <textarea class="form-control" rows="3" placeholder="Messsage description"></textarea>
-            </div>
-            <!-- start query-builder -->
-            <div class="query-builder">
-                <div class="radio-group">
-                    <label for="query-builder"><input type="radio" id="query-builder" name="querystatement" checked>Query Builder</label>
-                    <label for="statement"><input type="radio" id="statement" name="querystatement">Statement</label>
-                </div>
-                <app-condition [condition]="statementObjectFormTODO" data-remove="true"></app-condition>
-            </div>
-            <!-- end query-builder -->
-        </div>
-        <div class="rightcol-viewer">
-            <!-- start json-viewer -->
-            <div class="json-viewer">
-                <pre>{{statementObjectFormTODO.value | json}}</pre>
-            </div>
-            <!-- end json-viewer -->
-        </div>
-    </div>
+<app-condition [condition]="queryObject" data-remove="true"></app-condition>
+
+<!-- start json-viewer -->
+<div class="json-viewer">
+    <h3>Result Query Looks Like:</h3>
+    <pre>
+        {{getQuery(queryObject.value)?.query}}
+    </pre>
+
 </div>
-<!-- end business-rules -->
+<!-- end json-viewer -->

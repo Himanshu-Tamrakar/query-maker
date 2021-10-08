@@ -1,0 +1,38 @@
+<!-- start business-rules -->
+<div class="business-rules">
+    <div lang="box">
+        <div class="leftcol-formm">
+            <div class=" input-row">
+                <div class="input-col">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="Rule_Name" class="form-control">
+                    </div>
+                </div>
+                <div class="input-col">
+                    <div class="form-group">
+                        <label>Tags</label>
+                        <div class="form-control chips">
+                            <div class="chip">Failure<i class="icon-va-close close"></i></div>
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Description (Optional)</label>
+                <textarea class="form-control" rows="3" placeholder="Messsage description"></textarea>
+            </div>
+            <!-- start query-builder -->
+            <div class="query-builder">
+                <div class="radio-group">
+                    <label for="query-builder"><input type="radio" id="query-builder" name="querystatement" checked>Query Builder</label>
+                    <label for="statement"><input type="radio" id="statement" name="querystatement">Statement</label>
+                </div>
+                <app-design-query *ngIf="types && query" [query]="query" [types]="types"></app-design-query>
+            </div>
+            <!-- end query-builder -->
+        </div>
+    </div>
+</div>
+<!-- end business-rules -->

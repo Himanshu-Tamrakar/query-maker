@@ -1,24 +1,3 @@
-export interface IQueryBuilder {
-  type: TYPES; // Condition, Expression
-  operator: CONDITION_OPERATOR; // AND, OR
-  statements: IStateMent[];
-}
-
-interface IStateMent {
-  type: TYPES;
-  lOperand?: IOperand;
-  operator?: EXPRESSION_OPERATOR;
-  rOperand?: IOperand;
-  statements?: any;
-}
-
-interface IOperand {
-  displayName: string; //'$user.username';
-  type: string; // Operend
-  subType: string; // 'data'
-  value: string; //'var(emp.age)'
-}
-
 // first must, should be CONDITION, EXPRESSION
 export enum TYPES {
   'CONDITION',
@@ -32,3 +11,24 @@ export enum CONDITION_OPERATOR {
 }
 
 enum EXPRESSION_OPERATOR {}
+
+export interface IQuery {
+  type: string; // CONDITION, Expression
+  operator: CONDITION_OPERATOR; // AND, OR
+  statements: IStatement[];
+}
+
+export interface IStatement {
+  type: string;
+  lOperand?: IOperand;
+  operator?: EXPRESSION_OPERATOR;
+  rOperand?: IOperand;
+  statements?: any;
+}
+
+export interface IOperand {
+  displayName: string; //'$user.username';
+  type: string; // Operend
+  subType: string; // 'data'
+  value: string; //'var(emp.age)'
+}
